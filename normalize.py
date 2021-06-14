@@ -2,9 +2,6 @@ from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 
 def encode_sequences(tokenizer, length, lines):
-    print("toke")
-    print(tokenizer)
-    print(lines)
     seq = tokenizer.texts_to_sequences(lines)
     seq = pad_sequences(seq, maxlen=length, padding='post')
     return seq

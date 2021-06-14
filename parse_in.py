@@ -92,7 +92,7 @@ def generate_sample():
                                         if lyric.tag == "syllabic":
                                             syllabic = syllabic_dict[lyric.text]
                             melody.append([[step, octave, type],[syllabic,text]])
-        #os.rename(path.get("trainPath")+"/"+file, path.get("trainPath") + "/" + file[:-4]+"[trained].xml")
+        os.rename(path.get("trainPath")+"/"+file, path.get("trainPath") + "/" + file[:-4]+"[trained].xml")
     for note in melody:
         if note[1][0]:
             ans+=str(note[0])+"\t"+str(note[1])+"\n"

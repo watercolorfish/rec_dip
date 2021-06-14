@@ -10,8 +10,6 @@ def pre_train(in_out):
 	if check_for_new_files():	
 		sample = np.array(generate_sample())
 		train, test = train_test_split(sample, test_size=0.1, random_state=12) 
-		print("moooo")
-		print(in_out.get("in_data"))
 		trainX = encode_sequences(in_out.get("in_data"), 3, train[:, 0])
 		trainY = encode_sequences(in_out.get("out_data"), 2, train[:, 1])
 
@@ -22,4 +20,4 @@ def pre_train(in_out):
 
 		num_epochs = 500
 		history = model.fit(trainX, trainY.reshape(trainY.shape[0], trainY.shape[1], 1), epochs=num_epochs, batch_size=256, validation_split=0.1, callbacks=[tensorboard], verbose=1)
-		#model.save('model.h5')
+		model.save('model.h5')
